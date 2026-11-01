@@ -538,6 +538,12 @@ def _export_leg(sheet, block: PositionBlock, leg: Leg) -> None:
     if last and block.net_divisor is not None:
         sheet[f"K{row}"].comment = Comment(f"otp-divisor={block.net_divisor:g}", "otp-tracker")
 
+    for column, value in leg.extra_cells.items():
+        # Fidelity cells with no structural slot (e.g. the stray X5 = 0.0 literal).
+        if value is None:
+            continue
+        _write(sheet, f"{column}{row}", value, NUMFMT_BY_KEY.get(column))
+
     for column in leg.purple_cells:
         cell = sheet[f"{column}{row}"]
         cell.font = Font(color=PURPLE_RGB)

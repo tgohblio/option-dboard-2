@@ -70,9 +70,9 @@ def main(page: ft.Page) -> None:
         except Exception:  # noqa: BLE001 - close guard must never block startup
             pass
 
-    if boot.warnings:
-        state.set_status(boot.warnings[0])
-
+    # ``state.status`` already composes the data-source notice plus any bootstrap
+    # warnings (see app_state._boot_status); do not overwrite it here or a
+    # successful workbook import never reports what it loaded.
     page.add(build_app(page))
 
 

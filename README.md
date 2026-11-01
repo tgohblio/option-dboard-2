@@ -88,17 +88,29 @@ grid collections are always rebound (`grid.rows = build_rows(...)`, pitfall A).
 
 ## Verification performed
 
-`scripts/verify_acceptance.py` checks the spec's golden table (§14.2) — 73
-computed cells plus structure, quotes, purple set, ledger and formatter cases:
+Two runnable checks, both green on this machine:
 
 ```bash
-.venv/bin/python scripts/verify_acceptance.py     # -> ALL ACCEPTANCE CHECKS PASS
+.venv/bin/python scripts/verify_acceptance.py   # -> ALL ACCEPTANCE CHECKS PASS
+.venv/bin/python scripts/verify_ui_smoke.py     # -> HEADLESS UI + ENTRY-POINT SMOKE: ALL CHECKS PASS
 ```
 
-It passes both from the bundled seed **and** from a live import of
-`~/Downloads/OTPTracker.xlsx` (SHA-256 `525d60cb…`), whose values match the
-workbook's own cached results for every checked cell.  Export → re-import is
-value-lossless (comments, freeze panes `A5`, number formats, `TOTAL` row 40).
+`verify_acceptance.py` checks the spec's golden table (§14.2) — the 73 computed
+cells plus structure, quotes, purple set, ledger and formatter cases — in three
+passes: the bundled seed, a **live import of `~/Downloads/OTPTracker.xlsx`**
+(SHA-256 `525d60cb…`, matching the workbook's own cached results for every
+checked cell), and an **export → re-import round trip** (values identical,
+comments/freeze `A5`/number formats/19 purple cells/`TOTAL` row 40 preserved).
+
+`verify_ui_smoke.py` builds the real control tree against a stubbed `ft.Page`
+(no display or browser needed) and asserts: shell + rail navigation, the 9-row /
+26-column grid, the Excel-formatted totals strip (`36.40`, `9.20`, `(4,626.00)`,
+`6,663.00`), the market-data column toggle, add/edit/delete through the actual
+dialogs with live recomputation, inline symbol validation, quote-JSON
+application, roll-literal parse/render round trip, save→reload persistence, and
+every `main()` data-source path: healthy workbook, missing workbook (bundled
+seed + explanation), corrupt workbook (warning + fallback) and no source at all
+(fatal screen with remedies).
 
 ## Layout
 
