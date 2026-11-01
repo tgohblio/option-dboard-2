@@ -1,0 +1,19 @@
+[project]
+name = "otp-tracker"
+version = "1.0.0"
+description = "Flet desktop port of the OTPTracker.xlsx open-trades workbook"
+requires-python = ">=3.10"
+dependencies = [
+    "flet[all]==1.0.5",
+    "flet-datatable2==1.0.5",
+    "openpyxl==3.1.5",
+]
+
+[tool.flet.app]
+path = "src"
+
+[tool.flet]
+product = "OTP Tracker"
+org = "com.otp"
+company = "OTP"
+copyright = "Copyright (c) 2026"

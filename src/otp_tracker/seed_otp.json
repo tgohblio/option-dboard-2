@@ -1,0 +1,630 @@
+{
+  "version": 1,
+  "source": {
+    "file": "/home/xavier/Downloads/OTPTracker.xlsx",
+    "sha256": "525d60cbfd87cfef2078c8bf068eddecdf632969fd8c148172f5c7519ba525cd",
+    "imported_at": "2026-11-01T15:40:13+08:00"
+  },
+  "as_of_date": "2021-12-18",
+  "blocks": [
+    {
+      "row_start": 5,
+      "row_end": 6,
+      "strategy": null,
+      "capital": 1649.0,
+      "net_divisor": null,
+      "roll": {
+        "pairs": [
+          {
+            "new_px": 1.34,
+            "closed_px": 1.55
+          },
+          {
+            "new_px": 2.46,
+            "closed_px": 3.0
+          },
+          {
+            "new_px": 1.16,
+            "closed_px": 2.1
+          },
+          {
+            "new_px": 2.7,
+            "closed_px": 2.63
+          },
+          {
+            "new_px": 1.09,
+            "closed_px": 0.25
+          },
+          {
+            "new_px": 1.61,
+            "closed_px": 0.7
+          },
+          {
+            "new_px": 1.21,
+            "closed_px": 0.09
+          },
+          {
+            "new_px": 1.43,
+            "closed_px": 5.43
+          },
+          {
+            "new_px": 3.63,
+            "closed_px": 3.44
+          },
+          {
+            "new_px": 2.93,
+            "closed_px": 8.23
+          },
+          {
+            "new_px": 1.21,
+            "closed_px": 0.01
+          },
+          {
+            "new_px": 0.74,
+            "closed_px": 0.3
+          },
+          {
+            "new_px": 3.35,
+            "closed_px": 5.8
+          },
+          {
+            "new_px": 1.8,
+            "closed_px": 0.7
+          }
+        ],
+        "credits": [
+          1.07
+        ],
+        "literal_zero": false
+      },
+      "legs": [
+        {
+          "sheet_row": 5,
+          "symbol": null,
+          "entry_date": "2022-03-08",
+          "qty": -100.0,
+          "entry_price": null,
+          "action_note": null,
+          "quote": {
+            "ticker": "DIS",
+            "info": "DIS Mar 18 2022 145 Call",
+            "itm": false,
+            "dte": 11.0,
+            "underlying_price": 136.48000000000002,
+            "mark_price": 1.08,
+            "extrinsic_value": 1.08,
+            "price_change": -1.17,
+            "delta": 0.206,
+            "gamma": 0.03,
+            "theta": -0.118,
+            "vega": 0.07,
+            "raw": "{\"ticker\":\"DIS\",\"info\":\"DIS Mar 18 2022 145 Call\",\"itm\":false,\"dte\":11,\"underlyingPrice\":136.48000000000002,\"markPrice\":1.08,\"extrinsicValue\":\"1.080\",\"priceChange\":-1.17,\"delta\":0.206,\"gamma\":0.03,\"theta\":-0.118,\"vega\":0.07}"
+          },
+          "visible": {
+            "mark_price": 1.08,
+            "underlying_price": 136.48,
+            "price_change": -1.17,
+            "delta": 0.206,
+            "theta": -0.118,
+            "itm": false,
+            "ev": 1.08,
+            "dte": 11.0
+          },
+          "has_ev_column": true,
+          "purple_cells": [],
+          "extra_cells": {
+            "X": 0.0
+          }
+        },
+        {
+          "sheet_row": 6,
+          "symbol": null,
+          "entry_date": "2021-12-17",
+          "qty": 100.0,
+          "entry_price": null,
+          "action_note": null,
+          "quote": {
+            "ticker": "DIS",
+            "info": "DIS Apr 14 2022 135 Call (Weekly)",
+            "itm": true,
+            "dte": 38.0,
+            "underlying_price": 136.48000000000002,
+            "mark_price": 7.55,
+            "extrinsic_value": 6.05,
+            "price_change": -2.69,
+            "delta": 0.563,
+            "gamma": 0.023,
+            "theta": -0.088,
+            "vega": 0.175,
+            "raw": "{\"ticker\":\"DIS\",\"info\":\"DIS Apr 14 2022 135 Call (Weekly)\",\"itm\":true,\"dte\":38,\"underlyingPrice\":136.48000000000002,\"markPrice\":7.55,\"extrinsicValue\":\"6.050\",\"priceChange\":-2.69,\"delta\":0.563,\"gamma\":0.023,\"theta\":-0.088,\"vega\":0.175}"
+          },
+          "visible": {
+            "mark_price": 7.55,
+            "underlying_price": 136.48,
+            "price_change": -2.69,
+            "delta": 0.563,
+            "theta": -0.088,
+            "itm": true,
+            "ev": 6.05,
+            "dte": 38.0
+          },
+          "has_ev_column": true,
+          "purple_cells": [],
+          "extra_cells": {}
+        }
+      ]
+    },
+    {
+      "row_start": 7,
+      "row_end": 8,
+      "strategy": "Diagonal",
+      "capital": 2550.0,
+      "net_divisor": null,
+      "roll": {
+        "pairs": [
+          {
+            "new_px": 1.72,
+            "closed_px": 1.8
+          },
+          {
+            "new_px": 2.35,
+            "closed_px": 0.07
+          },
+          {
+            "new_px": 1.17,
+            "closed_px": 0.06
+          },
+          {
+            "new_px": 1.81,
+            "closed_px": 0.03
+          },
+          {
+            "new_px": 0.68,
+            "closed_px": 0.03
+          },
+          {
+            "new_px": 1.59,
+            "closed_px": 2.51
+          },
+          {
+            "new_px": 1.81,
+            "closed_px": 0.03
+          },
+          {
+            "new_px": 2.65,
+            "closed_px": 11.23
+          },
+          {
+            "new_px": 3.73,
+            "closed_px": 0.46
+          },
+          {
+            "new_px": 1.19,
+            "closed_px": 2.84
+          },
+          {
+            "new_px": 2.1,
+            "closed_px": 2.19
+          },
+          {
+            "new_px": 3.3,
+            "closed_px": 0.02
+          },
+          {
+            "new_px": 0.35,
+            "closed_px": 0.03
+          },
+          {
+            "new_px": 0.96,
+            "closed_px": 0.02
+          }
+        ],
+        "credits": [
+          1.02
+        ],
+        "literal_zero": false
+      },
+      "legs": [
+        {
+          "sheet_row": 7,
+          "symbol": ".AMD220715C85",
+          "entry_date": "2022-06-30",
+          "qty": -100.0,
+          "entry_price": 1.02,
+          "action_note": null,
+          "quote": {
+            "ticker": "AMD",
+            "info": "AMD Jul 15 2022 85 Call",
+            "itm": false,
+            "dte": 8.0,
+            "underlying_price": 78.205,
+            "mark_price": 0.51,
+            "extrinsic_value": 0.51,
+            "price_change": 0.22,
+            "delta": 0.159,
+            "gamma": 0.039,
+            "theta": -0.088,
+            "vega": 0.029,
+            "raw": "{\"ticker\":\"AMD\",\"info\":\"AMD Jul 15 2022 85 Call\",\"itm\":false,\"dte\":8,\"underlyingPrice\":78.205,\"markPrice\":0.51,\"extrinsicValue\":\"0.510\",\"priceChange\":0.22,\"delta\":0.159,\"gamma\":0.039,\"theta\":-0.088,\"vega\":0.029}"
+          },
+          "visible": {
+            "mark_price": 0.51,
+            "underlying_price": 78.205,
+            "price_change": 0.22,
+            "delta": 0.159,
+            "theta": -0.088,
+            "itm": false,
+            "ev": 0.51,
+            "dte": 8.0
+          },
+          "has_ev_column": true,
+          "purple_cells": [],
+          "extra_cells": {}
+        },
+        {
+          "sheet_row": 8,
+          "symbol": ".AMD221021C100",
+          "entry_date": "2022-03-25",
+          "qty": 100.0,
+          "entry_price": 29.47,
+          "action_note": null,
+          "quote": {
+            "ticker": "AMD",
+            "info": "AMD Oct 21 2022 100 Call",
+            "itm": false,
+            "dte": 106.0,
+            "underlying_price": 78.215,
+            "mark_price": 2.46,
+            "extrinsic_value": 2.46,
+            "price_change": 0.48,
+            "delta": 0.228,
+            "gamma": 0.014,
+            "theta": -0.031,
+            "vega": 0.128,
+            "raw": "{\"ticker\":\"AMD\",\"info\":\"AMD Oct 21 2022 100 Call\",\"itm\":false,\"dte\":106,\"underlyingPrice\":78.215,\"markPrice\":2.46,\"extrinsicValue\":\"2.460\",\"priceChange\":0.48,\"delta\":0.228,\"gamma\":0.014,\"theta\":-0.031,\"vega\":0.128}"
+          },
+          "visible": {
+            "mark_price": 2.46,
+            "underlying_price": 78.215,
+            "price_change": 0.48,
+            "delta": 0.228,
+            "theta": -0.031,
+            "itm": false,
+            "ev": 2.46,
+            "dte": 106.0
+          },
+          "has_ev_column": true,
+          "purple_cells": [],
+          "extra_cells": {}
+        }
+      ]
+    },
+    {
+      "row_start": 9,
+      "row_end": 10,
+      "strategy": "Diagonal",
+      "capital": 2039.0,
+      "net_divisor": null,
+      "roll": {
+        "pairs": [
+          {
+            "new_px": 1.61,
+            "closed_px": 2.2
+          },
+          {
+            "new_px": 1.12,
+            "closed_px": 3.94
+          },
+          {
+            "new_px": 1.46,
+            "closed_px": 0.13
+          },
+          {
+            "new_px": 1.14,
+            "closed_px": 0.13
+          },
+          {
+            "new_px": 3.11,
+            "closed_px": 4.79
+          },
+          {
+            "new_px": 0.71,
+            "closed_px": 0.1
+          },
+          {
+            "new_px": 1.71,
+            "closed_px": 0.02
+          },
+          {
+            "new_px": 1.28,
+            "closed_px": 3.28
+          },
+          {
+            "new_px": 2.98,
+            "closed_px": 2.88
+          },
+          {
+            "new_px": 3.28,
+            "closed_px": 0.02
+          },
+          {
+            "new_px": 0.95,
+            "closed_px": 2.68
+          },
+          {
+            "new_px": 1.98,
+            "closed_px": 0.1
+          }
+        ],
+        "credits": [
+          0.82
+        ],
+        "literal_zero": false
+      },
+      "legs": [
+        {
+          "sheet_row": 9,
+          "symbol": ".JPM220422C131",
+          "entry_date": "2022-04-13",
+          "qty": -100.0,
+          "entry_price": 0.82,
+          "action_note": null,
+          "quote": {
+            "ticker": "None",
+            "info": "None",
+            "itm": false,
+            "dte": 0.0,
+            "underlying_price": 0.0,
+            "mark_price": 0.0,
+            "extrinsic_value": 0.0,
+            "price_change": 0.0,
+            "delta": 0.0,
+            "gamma": 0.0,
+            "theta": 0.0,
+            "vega": 0.0,
+            "raw": "{\"ticker\":\"None\",\"info\":\"None\",\"itm\":false,\"dte\":0,\"underlyingPrice\":0,\"markPrice\":0,\"extrinsicValue\":0,\"priceChange\":0,\"delta\":0,\"gamma\":0,\"theta\":0,\"vega\":0}"
+          },
+          "visible": {
+            "mark_price": 2.46,
+            "underlying_price": 78.215,
+            "price_change": 0.48,
+            "delta": 0.228,
+            "theta": -0.031,
+            "itm": false,
+            "ev": 2.46,
+            "dte": 106.0
+          },
+          "has_ev_column": true,
+          "purple_cells": [
+            "L",
+            "M"
+          ],
+          "extra_cells": {}
+        },
+        {
+          "sheet_row": 10,
+          "symbol": ".JPM220916C130",
+          "entry_date": "2022-01-21",
+          "qty": 100.0,
+          "entry_price": 22.0,
+          "action_note": null,
+          "quote": {
+            "ticker": "JPM",
+            "info": "JPM Sep 16 2022 130 Call",
+            "itm": false,
+            "dte": 71.0,
+            "underlying_price": 113.865,
+            "mark_price": 1.17,
+            "extrinsic_value": 1.17,
+            "price_change": 0.23,
+            "delta": 0.166,
+            "gamma": 0.018,
+            "theta": -0.026,
+            "vega": 0.126,
+            "raw": "{\"ticker\":\"JPM\",\"info\":\"JPM Sep 16 2022 130 Call\",\"itm\":false,\"dte\":71,\"underlyingPrice\":113.865,\"markPrice\":1.17,\"extrinsicValue\":\"1.170\",\"priceChange\":0.23,\"delta\":0.166,\"gamma\":0.018,\"theta\":-0.026,\"vega\":0.126}"
+          },
+          "visible": {
+            "mark_price": 1.17,
+            "underlying_price": 113.865,
+            "price_change": 0.23,
+            "delta": 0.166,
+            "theta": -0.026,
+            "itm": false,
+            "ev": 1.17,
+            "dte": 71.0
+          },
+          "has_ev_column": true,
+          "purple_cells": [
+            "L",
+            "M",
+            "Y",
+            "Z"
+          ],
+          "extra_cells": {}
+        }
+      ]
+    },
+    {
+      "row_start": 11,
+      "row_end": 13,
+      "strategy": "BWB",
+      "capital": 425.0,
+      "net_divisor": 1000.0,
+      "roll": {
+        "pairs": [],
+        "credits": [],
+        "literal_zero": true
+      },
+      "legs": [
+        {
+          "sheet_row": 11,
+          "symbol": ".QQQ220330P326",
+          "entry_date": null,
+          "qty": 500.0,
+          "entry_price": 3.28,
+          "action_note": null,
+          "quote": {
+            "ticker": "None",
+            "info": "None",
+            "itm": false,
+            "dte": 0.0,
+            "underlying_price": 0.0,
+            "mark_price": 0.0,
+            "extrinsic_value": 0.0,
+            "price_change": 0.0,
+            "delta": 0.0,
+            "gamma": 0.0,
+            "theta": 0.0,
+            "vega": 0.0,
+            "raw": "{\"ticker\":\"None\",\"info\":\"None\",\"itm\":false,\"dte\":0,\"underlyingPrice\":0,\"markPrice\":0,\"extrinsicValue\":0,\"priceChange\":0,\"delta\":0,\"gamma\":0,\"theta\":0,\"vega\":0}"
+          },
+          "visible": {
+            "mark_price": 1.17,
+            "underlying_price": 113.865,
+            "price_change": 0.23,
+            "delta": 0.166,
+            "theta": -0.026,
+            "itm": false,
+            "ev": 1.17,
+            "dte": 71.0
+          },
+          "has_ev_column": false,
+          "purple_cells": [
+            "L",
+            "M",
+            "P",
+            "R"
+          ],
+          "extra_cells": {}
+        },
+        {
+          "sheet_row": 12,
+          "symbol": ".QQQ220330P318",
+          "entry_date": null,
+          "qty": -1000.0,
+          "entry_price": 1.98,
+          "action_note": null,
+          "quote": {
+            "ticker": "None",
+            "info": "None",
+            "itm": false,
+            "dte": 0.0,
+            "underlying_price": 0.0,
+            "mark_price": 0.0,
+            "extrinsic_value": 0.0,
+            "price_change": 0.0,
+            "delta": 0.0,
+            "gamma": 0.0,
+            "theta": 0.0,
+            "vega": 0.0,
+            "raw": "{\"ticker\":\"None\",\"info\":\"None\",\"itm\":false,\"dte\":0,\"underlyingPrice\":0,\"markPrice\":0,\"extrinsicValue\":0,\"priceChange\":0,\"delta\":0,\"gamma\":0,\"theta\":0,\"vega\":0}"
+          },
+          "visible": {
+            "mark_price": 1.17,
+            "underlying_price": 113.865,
+            "price_change": 0.23,
+            "delta": 0.166,
+            "theta": -0.026,
+            "itm": false,
+            "ev": 1.17,
+            "dte": 71.0
+          },
+          "has_ev_column": false,
+          "purple_cells": [
+            "L",
+            "M",
+            "P",
+            "R"
+          ],
+          "extra_cells": {}
+        },
+        {
+          "sheet_row": 13,
+          "symbol": ".QQQ220330P314",
+          "entry_date": "2022-03-17",
+          "qty": 500.0,
+          "entry_price": 1.53,
+          "action_note": null,
+          "quote": {
+            "ticker": "None",
+            "info": "None",
+            "itm": false,
+            "dte": 0.0,
+            "underlying_price": 0.0,
+            "mark_price": 0.0,
+            "extrinsic_value": 0.0,
+            "price_change": 0.0,
+            "delta": 0.0,
+            "gamma": 0.0,
+            "theta": 0.0,
+            "vega": 0.0,
+            "raw": "{\"ticker\":\"None\",\"info\":\"None\",\"itm\":false,\"dte\":0,\"underlyingPrice\":0,\"markPrice\":0,\"extrinsicValue\":0,\"priceChange\":0,\"delta\":0,\"gamma\":0,\"theta\":0,\"vega\":0}"
+          },
+          "visible": {
+            "mark_price": 1.17,
+            "underlying_price": 113.865,
+            "price_change": 0.23,
+            "delta": 0.166,
+            "theta": -0.026,
+            "itm": false,
+            "ev": 1.17,
+            "dte": 71.0
+          },
+          "has_ev_column": false,
+          "purple_cells": [
+            "L",
+            "M",
+            "P",
+            "R",
+            "Z"
+          ],
+          "extra_cells": {}
+        }
+      ]
+    }
+  ],
+  "ledger": {
+    "months": [
+      {
+        "month": "2022-02-01",
+        "entries": [
+          {
+            "ticker": "NKE",
+            "pnl": -354.0,
+            "extra": null
+          },
+          {
+            "ticker": "GLD",
+            "pnl": -295.0,
+            "extra": -680.0
+          },
+          {
+            "ticker": "ADBE",
+            "pnl": -737.0,
+            "extra": null
+          },
+          {
+            "ticker": "FB",
+            "pnl": -1090.0,
+            "extra": null
+          },
+          {
+            "ticker": "SPX",
+            "pnl": -1000.0,
+            "extra": null
+          }
+        ]
+      },
+      {
+        "month": "2022-03-01",
+        "entries": [
+          {
+            "ticker": "XOP",
+            "pnl": -265.0,
+            "extra": null
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+data/app_store.json
+data/app_store.json.bak-*
+data/export_test.xlsx
+build/
+dist/
+.DS_Store
+*.log
+.flet/

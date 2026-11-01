@@ -1,0 +1,1533 @@
+{
+  "source": {
+    "path": "/home/xavier/Downloads/OTPTracker.xlsx",
+    "sha256": "525d60cbfd87cfef2078c8bf068eddecdf632969fd8c148172f5c7519ba525cd",
+    "size_bytes": 34334
+  },
+  "workbook": {
+    "date_system_epoch": "1899-12-30 00:00:00",
+    "sheets": [
+      {
+        "name": "Open Trades",
+        "state": "visible",
+        "dimensions": "A1:AB986",
+        "max_row": 986,
+        "max_col": 28,
+        "freeze_panes": "A5",
+        "merged": [],
+        "autofilter": null,
+        "data_validations": [],
+        "conditional_formatting": [],
+        "charts_count": 0,
+        "images_count": 0,
+        "column_widths": {
+          "A": 16.5,
+          "B": 7.25,
+          "C": 20.25,
+          "D": 11.0,
+          "E": 8.75,
+          "F": 9.13,
+          "G": 11.63,
+          "H": 9.63,
+          "I": 35.25,
+          "J": 9.63,
+          "K": 12.63,
+          "L": 9.63,
+          "M": 7.63,
+          "N": 12.75,
+          "O": 11.0,
+          "P": 8.75,
+          "Q": 12.13,
+          "R": 9.0,
+          "S": 12.25,
+          "T": 5.63,
+          "U": 19.0,
+          "V": 10.13,
+          "W": 12.0,
+          "X": 8.0,
+          "Y": 10.75,
+          "Z": 7.0
+        },
+        "outline_cols": [
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W"
+        ],
+        "hidden_cols": []
+      },
+      {
+        "name": "Sheet6",
+        "state": "visible",
+        "dimensions": "A2:C9",
+        "max_row": 9,
+        "max_col": 3,
+        "freeze_panes": null,
+        "merged": [],
+        "autofilter": null,
+        "data_validations": [],
+        "conditional_formatting": [],
+        "charts_count": 0,
+        "images_count": 0,
+        "column_widths": {},
+        "outline_cols": [],
+        "hidden_cols": []
+      }
+    ],
+    "defined_names": {
+      "EntryValue": "'Open Trades'!$H:$H",
+      "EntryPrice": "'Open Trades'!$F:$F",
+      "Theta": "'Open Trades'!$S:$S",
+      "MarkValue": "'Open Trades'!$L:$L",
+      "ExtrinsicValue": "'Open Trades'!$V:$V",
+      "RollingProfitLoss": "'Open Trades'!$X:$X",
+      "Qty": "'Open Trades'!$E:$E",
+      "OPRA": "'Open Trades'!$C:$C",
+      "MarkPrice": "'Open Trades'!$J:$J",
+      "ProfitLossOpen": "'Open Trades'!$M:$M",
+      "Delta": "'Open Trades'!$Q:$Q",
+      "Capital": "'Open Trades'!$I:$I",
+      "TotalProfitLoss": "'Open Trades'!$Y:$Y"
+    },
+    "has_vba_macros": false,
+    "password_protected": false,
+    "creator_metadata_absent": true
+  },
+  "open_trades": {
+    "layout_rows_1_4": {
+      "1": {
+        "I": {
+          "value": "OTP PORFOLIO TRACKER - OPEN TRADES",
+          "numfmt": "#,##0.00"
+        }
+      },
+      "2": {},
+      "3": {
+        "C": {
+          "value": "Entry Data",
+          "numfmt": "General"
+        },
+        "K": {
+          "value": "Market Data",
+          "numfmt": "General"
+        },
+        "Y": {
+          "value": "2021-12-18 00:00:00",
+          "numfmt": "M/d/yyyy"
+        }
+      },
+      "4": {
+        "A": {
+          "value": "Trade Action\nNotif. #",
+          "numfmt": "General"
+        },
+        "B": {
+          "value": "Strategy",
+          "numfmt": "General"
+        },
+        "C": {
+          "value": "OPRA",
+          "numfmt": "General"
+        },
+        "D": {
+          "value": "Entry Date",
+          "numfmt": "M/d/yyyy"
+        },
+        "E": {
+          "value": "Qty",
+          "numfmt": "[Color 10]#,##0;([Red]#,##0);[Black]0.0;[Magenta]_(@_)"
+        },
+        "F": {
+          "value": "Entry Price",
+          "numfmt": "#,##0.00"
+        },
+        "G": {
+          "value": "Net\nEntry\nPrice",
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "H": {
+          "value": "Entry Value",
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "I": {
+          "value": "Capital/\nBuying Power\n(Max Loss)",
+          "numfmt": "#,##0.00"
+        },
+        "J": {
+          "value": "MARK Price",
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "K": {
+          "value": "Net\nMARK Price",
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "L": {
+          "value": "MARK\nValue",
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "M": {
+          "value": "P/L Open",
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "N": {
+          "value": "Underlying\nPrice",
+          "numfmt": "General"
+        },
+        "O": {
+          "value": "Price Change",
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "P": {
+          "value": "Total Delta",
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "Q": {
+          "value": "Delta\nper share",
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "R": {
+          "value": "Total Theta",
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "S": {
+          "value": "Theta\nper share",
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "T": {
+          "value": "ITM",
+          "numfmt": "General"
+        },
+        "U": {
+          "value": "Total\nExtrinsic\nValue(EV)",
+          "numfmt": "\"$\"#,##0.00"
+        },
+        "V": {
+          "value": "EV\nper share",
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "W": {
+          "value": "Remaining\nDTE",
+          "numfmt": "General"
+        },
+        "X": {
+          "value": "Rolling\nP/L",
+          "numfmt": "#,##0.00"
+        },
+        "Y": {
+          "value": "Total\nP/L",
+          "numfmt": "General"
+        },
+        "Z": {
+          "value": "% ROI",
+          "numfmt": "General"
+        }
+      }
+    },
+    "data_rows": {
+      "5": {
+        "D": {
+          "value": "2022-03-08 00:00:00",
+          "numfmt": "M/d/yyyy"
+        },
+        "E": {
+          "value": -100.0,
+          "numfmt": "[Color 10]#,##0;([Red]#,##0);[Black]0.0;[Magenta]_(@_)"
+        },
+        "H": {
+          "formula": "=EntryPrice*Qty",
+          "value": 0,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "J": {
+          "value": 1.08,
+          "numfmt": "General"
+        },
+        "L": {
+          "formula": "=MarkPrice*Qty",
+          "value": -108,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "M": {
+          "formula": "=MarkValue-EntryValue",
+          "value": -108,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "N": {
+          "value": 136.48,
+          "numfmt": "General"
+        },
+        "O": {
+          "value": -1.17,
+          "numfmt": "General"
+        },
+        "P": {
+          "formula": "=Delta*Qty",
+          "value": -20.6,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "Q": {
+          "value": 0.206,
+          "numfmt": "General"
+        },
+        "R": {
+          "formula": "=Theta*Qty",
+          "value": 11.8,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "S": {
+          "value": -0.118,
+          "numfmt": "General"
+        },
+        "T": {
+          "value": false,
+          "numfmt": "General"
+        },
+        "U": {
+          "formula": "=ExtrinsicValue*Qty",
+          "value": -108,
+          "numfmt": "\"$\"#,##0.00"
+        },
+        "V": {
+          "value": 1.08,
+          "numfmt": "General"
+        },
+        "W": {
+          "value": 11.0,
+          "numfmt": "General"
+        },
+        "X": {
+          "value": 0.0,
+          "numfmt": "#,##0.00"
+        }
+      },
+      "6": {
+        "D": {
+          "value": "2021-12-17 00:00:00",
+          "numfmt": "M/d/yyyy"
+        },
+        "E": {
+          "value": 100.0,
+          "numfmt": "[Color 10]#,##0;([Red]#,##0);[Black]0.0;[Magenta]_(@_)"
+        },
+        "G": {
+          "formula": "=SUM(H5:H6)/E6",
+          "value": 0,
+          "numfmt": "#,##0.00"
+        },
+        "H": {
+          "formula": "=EntryPrice*Qty",
+          "value": 0,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "I": {
+          "value": 1649.0,
+          "numfmt": "#,##0.00"
+        },
+        "J": {
+          "value": 7.55,
+          "numfmt": "General"
+        },
+        "K": {
+          "formula": "=SUM(L5:L6)/E6",
+          "value": 6.47,
+          "numfmt": "General"
+        },
+        "L": {
+          "formula": "=MarkPrice*Qty",
+          "value": 755,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "M": {
+          "formula": "=MarkValue-EntryValue",
+          "value": 755,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "N": {
+          "value": 136.48,
+          "numfmt": "General"
+        },
+        "O": {
+          "value": -2.69,
+          "numfmt": "General"
+        },
+        "P": {
+          "formula": "=Delta*Qty",
+          "value": 56.3,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "Q": {
+          "value": 0.563,
+          "numfmt": "General"
+        },
+        "R": {
+          "formula": "=Theta*Qty",
+          "value": -8.8,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "S": {
+          "value": -0.088,
+          "numfmt": "General"
+        },
+        "T": {
+          "value": true,
+          "numfmt": "General"
+        },
+        "U": {
+          "formula": "=ExtrinsicValue*Qty",
+          "value": 605,
+          "numfmt": "\"$\"#,##0.00"
+        },
+        "V": {
+          "value": 6.05,
+          "numfmt": "General"
+        },
+        "W": {
+          "value": 38.0,
+          "numfmt": "General"
+        },
+        "X": {
+          "formula": "=((1.34-1.55)+(2.46-3)+(1.16-2.1)+(2.7-2.63)+(1.09-0.25)+(1.61-0.7)+(1.21-0.09)+(1.43-5.43)+(3.63-3.44)+(2.93-8.23)+(1.21-0.01)+(0.74-0.3)+(3.35-5.8)+(1.8-0.7)+1.07)*100",
+          "value": -650,
+          "numfmt": "#,##0.00"
+        },
+        "Y": {
+          "formula": "=SUM(M5:M6)+X6",
+          "value": -3,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "Z": {
+          "formula": "=TotalProfitLoss/Capital",
+          "value": -0.001819284415,
+          "numfmt": "0.00%"
+        }
+      },
+      "7": {
+        "B": {
+          "value": "Diagonal",
+          "numfmt": "General"
+        },
+        "C": {
+          "value": ".AMD220715C85",
+          "numfmt": "General"
+        },
+        "D": {
+          "value": "2022-06-30 00:00:00",
+          "numfmt": "M/d/yyyy"
+        },
+        "E": {
+          "value": -100.0,
+          "numfmt": "[Color 10]#,##0;([Red]#,##0);[Black]0.0;[Magenta]_(@_)"
+        },
+        "F": {
+          "value": 1.02,
+          "numfmt": "#,##0.00"
+        },
+        "H": {
+          "formula": "=EntryPrice*Qty",
+          "value": -102,
+          "numfmt": "[Color 10]#,##0.00;([Red]#,##0.00);[Black]0.00;[Magenta]_(@_)"
+        },
+        "J": {
+          "value": 0.51,
+          "numfmt": "General"
+        },
+        "L": {
+          "formula": "=MarkPrice*Qty",
+          "value": -51,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "M": {
+          "formula": "=MarkValue-EntryValue",
+          "value": 51,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "N": {
+          "value": 78.205,
+          "numfmt": "General"
+        },
+        "O": {
+          "value": 0.22,
+          "numfmt": "General"
+        },
+        "P": {
+          "formula": "=Delta*Qty",
+          "value": -15.9,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "Q": {
+          "value": 0.159,
+          "numfmt": "General"
+        },
+        "R": {
+          "formula": "=Theta*Qty",
+          "value": 8.8,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "S": {
+          "value": -0.088,
+          "numfmt": "General"
+        },
+        "T": {
+          "value": false,
+          "numfmt": "General"
+        },
+        "U": {
+          "formula": "=ExtrinsicValue*Qty",
+          "value": -51,
+          "numfmt": "\"$\"#,##0.00"
+        },
+        "V": {
+          "value": 0.51,
+          "numfmt": "General"
+        },
+        "W": {
+          "value": 8.0,
+          "numfmt": "General"
+        }
+      },
+      "8": {
+        "C": {
+          "value": ".AMD221021C100",
+          "numfmt": "General"
+        },
+        "D": {
+          "value": "2022-03-25 00:00:00",
+          "numfmt": "M/d/yyyy"
+        },
+        "E": {
+          "value": 100.0,
+          "numfmt": "[Color 10]#,##0;([Red]#,##0);[Black]0.0;[Magenta]_(@_)"
+        },
+        "F": {
+          "value": 29.47,
+          "numfmt": "#,##0.00"
+        },
+        "G": {
+          "formula": "=SUM(H7:H8)/E8",
+          "value": 28.45,
+          "numfmt": "[Color 10]#,##0;([Red]#,##0);[Black]0.0;[Magenta]_(@_)"
+        },
+        "H": {
+          "formula": "=EntryPrice*Qty",
+          "value": 2947,
+          "numfmt": "[Color 10]#,##0.00;([Red]#,##0.00);[Black]0.00;[Magenta]_(@_)"
+        },
+        "I": {
+          "value": 2550.0,
+          "numfmt": "#,##0.00"
+        },
+        "J": {
+          "value": 2.46,
+          "numfmt": "General"
+        },
+        "K": {
+          "formula": "=SUM(L7:L8)/E8",
+          "value": 1.95,
+          "numfmt": "General"
+        },
+        "L": {
+          "formula": "=MarkPrice*Qty",
+          "value": 246,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "M": {
+          "formula": "=MarkValue-EntryValue",
+          "value": -2701,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "N": {
+          "value": 78.215,
+          "numfmt": "General"
+        },
+        "O": {
+          "value": 0.48,
+          "numfmt": "General"
+        },
+        "P": {
+          "formula": "=Delta*Qty",
+          "value": 22.8,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "Q": {
+          "value": 0.228,
+          "numfmt": "General"
+        },
+        "R": {
+          "formula": "=Theta*Qty",
+          "value": -3.1,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "S": {
+          "value": -0.031,
+          "numfmt": "General"
+        },
+        "T": {
+          "value": false,
+          "numfmt": "General"
+        },
+        "U": {
+          "formula": "=ExtrinsicValue*Qty",
+          "value": 246,
+          "numfmt": "\"$\"#,##0.00"
+        },
+        "V": {
+          "value": 2.46,
+          "numfmt": "General"
+        },
+        "W": {
+          "value": 106.0,
+          "numfmt": "General"
+        },
+        "X": {
+          "formula": "=((1.72-1.8)+(2.35-0.07)+(1.17-0.06)+(1.81-0.03)+(0.68-0.03)+(1.59-2.51)+(1.81-0.03)+(2.65-11.23)+(3.73-0.46)+(1.19-2.84)+(2.1-2.19)+(3.3-0.02)+(0.35-0.03)+(0.96-0.02)+1.02)*100",
+          "value": 511,
+          "numfmt": "#,##0.00"
+        },
+        "Y": {
+          "formula": "=SUM(M7:M8)+X8",
+          "value": -2139,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "Z": {
+          "formula": "=TotalProfitLoss/Capital",
+          "value": -0.8388235294,
+          "numfmt": "0.00%"
+        }
+      },
+      "9": {
+        "B": {
+          "value": "Diagonal",
+          "numfmt": "General"
+        },
+        "C": {
+          "value": ".JPM220422C131",
+          "numfmt": "General"
+        },
+        "D": {
+          "value": "2022-04-13 00:00:00",
+          "numfmt": "M/d/yyyy"
+        },
+        "E": {
+          "value": -100.0,
+          "numfmt": "[Color 10]#,##0;([Red]#,##0);[Black]0.0;[Magenta]_(@_)"
+        },
+        "F": {
+          "value": 0.82,
+          "numfmt": "#,##0.00"
+        },
+        "H": {
+          "formula": "=EntryPrice*Qty",
+          "value": -82,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "J": {
+          "value": 2.46,
+          "numfmt": "General"
+        },
+        "L": {
+          "formula": "=MarkPrice*Qty",
+          "value": -246,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0",
+          "font_rgb": "FF7E3794"
+        },
+        "M": {
+          "formula": "=MarkValue-EntryValue",
+          "value": -164,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0",
+          "font_rgb": "FF7E3794"
+        },
+        "N": {
+          "value": 78.215,
+          "numfmt": "General"
+        },
+        "O": {
+          "value": 0.48,
+          "numfmt": "General"
+        },
+        "P": {
+          "formula": "=Delta*Qty",
+          "value": -22.8,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "Q": {
+          "value": 0.228,
+          "numfmt": "General"
+        },
+        "R": {
+          "formula": "=Theta*Qty",
+          "value": 3.1,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "S": {
+          "value": -0.031,
+          "numfmt": "General"
+        },
+        "T": {
+          "value": false,
+          "numfmt": "General"
+        },
+        "U": {
+          "formula": "=ExtrinsicValue*Qty",
+          "value": -246,
+          "numfmt": "\"$\"#,##0.00"
+        },
+        "V": {
+          "value": 2.46,
+          "numfmt": "General"
+        },
+        "W": {
+          "value": 106.0,
+          "numfmt": "General"
+        }
+      },
+      "10": {
+        "C": {
+          "value": ".JPM220916C130",
+          "numfmt": "General"
+        },
+        "D": {
+          "value": "2022-01-21 00:00:00",
+          "numfmt": "M/d/yyyy"
+        },
+        "E": {
+          "value": 100.0,
+          "numfmt": "[Color 10]#,##0;([Red]#,##0);[Black]0.0;[Magenta]_(@_)"
+        },
+        "F": {
+          "value": 22.0,
+          "numfmt": "#,##0.00"
+        },
+        "G": {
+          "formula": "=SUM(H9:H10)/E10",
+          "value": 21.18,
+          "numfmt": "[Color 10]#,##0;([Red]#,##0);[Black]0.0;[Magenta]_(@_)"
+        },
+        "H": {
+          "formula": "=EntryPrice*Qty",
+          "value": 2200,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "I": {
+          "value": 2039.0,
+          "numfmt": "#,##0.00"
+        },
+        "J": {
+          "value": 1.17,
+          "numfmt": "General"
+        },
+        "K": {
+          "formula": "=SUM(L9:L10)/E10",
+          "value": -1.29,
+          "numfmt": "General"
+        },
+        "L": {
+          "formula": "=MarkPrice*Qty",
+          "value": 117,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0",
+          "font_rgb": "FF7E3794"
+        },
+        "M": {
+          "formula": "=MarkValue-EntryValue",
+          "value": -2083,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0",
+          "font_rgb": "FF7E3794"
+        },
+        "N": {
+          "value": 113.865,
+          "numfmt": "General"
+        },
+        "O": {
+          "value": 0.23,
+          "numfmt": "General"
+        },
+        "P": {
+          "formula": "=Delta*Qty",
+          "value": 16.6,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "Q": {
+          "value": 0.166,
+          "numfmt": "General"
+        },
+        "R": {
+          "formula": "=Theta*Qty",
+          "value": -2.6,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "S": {
+          "value": -0.026,
+          "numfmt": "General"
+        },
+        "T": {
+          "value": false,
+          "numfmt": "General"
+        },
+        "U": {
+          "formula": "=ExtrinsicValue*Qty",
+          "value": 117,
+          "numfmt": "\"$\"#,##0.00"
+        },
+        "V": {
+          "value": 1.17,
+          "numfmt": "General"
+        },
+        "W": {
+          "value": 71.0,
+          "numfmt": "General"
+        },
+        "X": {
+          "formula": "=((1.61-2.2)+(1.12-3.94)+(1.46-0.13)+(1.14-0.13)+(3.11-4.79)+(0.71-0.1)+(1.71-0.02)+(1.28-3.28)+(2.98-2.88)+(3.28-0.02)+(0.95-2.68)+(1.98-0.1)+0.82)*100",
+          "value": 188,
+          "numfmt": "#,##0.00"
+        },
+        "Y": {
+          "formula": "=SUM(M9:M10)+X10",
+          "value": -2059,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0",
+          "font_rgb": "FF7E3794"
+        },
+        "Z": {
+          "formula": "=TotalProfitLoss/Capital",
+          "value": -1.00980873,
+          "numfmt": "0.00%",
+          "font_rgb": "FF7E3794"
+        }
+      },
+      "11": {
+        "B": {
+          "value": "BWB",
+          "numfmt": "General"
+        },
+        "C": {
+          "value": ".QQQ220330P326",
+          "numfmt": "General"
+        },
+        "E": {
+          "value": 500.0,
+          "numfmt": "[Color 10]#,##0;([Red]#,##0);[Black]0.0;[Magenta]_(@_)"
+        },
+        "F": {
+          "value": 3.28,
+          "numfmt": "#,##0.00"
+        },
+        "H": {
+          "formula": "=EntryPrice*Qty",
+          "value": 1640,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "J": {
+          "value": 1.17,
+          "numfmt": "General"
+        },
+        "L": {
+          "formula": "=MarkPrice*Qty",
+          "value": 585,
+          "numfmt": "General",
+          "font_rgb": "FF7E3794"
+        },
+        "M": {
+          "formula": "=MarkValue-EntryValue",
+          "value": -1055,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0",
+          "font_rgb": "FF7E3794"
+        },
+        "N": {
+          "value": 113.865,
+          "numfmt": "General"
+        },
+        "O": {
+          "value": 0.23,
+          "numfmt": "General"
+        },
+        "P": {
+          "formula": "=Delta*Qty",
+          "value": 83,
+          "numfmt": "General",
+          "font_rgb": "FF7E3794"
+        },
+        "Q": {
+          "value": 0.166,
+          "numfmt": "General"
+        },
+        "R": {
+          "formula": "=Theta*Qty",
+          "value": -13,
+          "numfmt": "General",
+          "font_rgb": "FF7E3794"
+        },
+        "S": {
+          "value": -0.026,
+          "numfmt": "General"
+        },
+        "T": {
+          "value": false,
+          "numfmt": "General"
+        },
+        "V": {
+          "value": 1.17,
+          "numfmt": "General"
+        },
+        "W": {
+          "value": 71.0,
+          "numfmt": "General"
+        }
+      },
+      "12": {
+        "C": {
+          "value": ".QQQ220330P318",
+          "numfmt": "General"
+        },
+        "E": {
+          "value": -1000.0,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "F": {
+          "value": 1.98,
+          "numfmt": "General"
+        },
+        "H": {
+          "formula": "=EntryPrice*Qty",
+          "value": -1980,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "J": {
+          "value": 1.17,
+          "numfmt": "General"
+        },
+        "L": {
+          "formula": "=MarkPrice*Qty",
+          "value": -1170,
+          "numfmt": "General",
+          "font_rgb": "FF7E3794"
+        },
+        "M": {
+          "formula": "=MarkValue-EntryValue",
+          "value": 810,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0",
+          "font_rgb": "FF7E3794"
+        },
+        "N": {
+          "value": 113.865,
+          "numfmt": "General"
+        },
+        "O": {
+          "value": 0.23,
+          "numfmt": "General"
+        },
+        "P": {
+          "formula": "=Delta*Qty",
+          "value": -166,
+          "numfmt": "General",
+          "font_rgb": "FF7E3794"
+        },
+        "Q": {
+          "value": 0.166,
+          "numfmt": "General"
+        },
+        "R": {
+          "formula": "=Theta*Qty",
+          "value": 26,
+          "numfmt": "General",
+          "font_rgb": "FF7E3794"
+        },
+        "S": {
+          "value": -0.026,
+          "numfmt": "General"
+        },
+        "T": {
+          "value": false,
+          "numfmt": "General"
+        },
+        "V": {
+          "value": 1.17,
+          "numfmt": "General"
+        },
+        "W": {
+          "value": 71.0,
+          "numfmt": "General"
+        }
+      },
+      "13": {
+        "C": {
+          "value": ".QQQ220330P314",
+          "numfmt": "General"
+        },
+        "D": {
+          "value": "2022-03-17 00:00:00",
+          "numfmt": "M/d/yyyy"
+        },
+        "E": {
+          "value": 500.0,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "F": {
+          "value": 1.53,
+          "numfmt": "General"
+        },
+        "G": {
+          "formula": "=SUM(H11:H13)/E13",
+          "value": 0.85,
+          "numfmt": "General"
+        },
+        "H": {
+          "formula": "=EntryPrice*Qty",
+          "value": 765,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "I": {
+          "value": 425.0,
+          "numfmt": "#,##0.00"
+        },
+        "J": {
+          "value": 1.17,
+          "numfmt": "General"
+        },
+        "K": {
+          "formula": "=SUM(L11:L13)/(1000)",
+          "value": 0,
+          "numfmt": "General"
+        },
+        "L": {
+          "formula": "=MarkPrice*Qty",
+          "value": 585,
+          "numfmt": "General",
+          "font_rgb": "FF7E3794"
+        },
+        "M": {
+          "formula": "=MarkValue-EntryValue",
+          "value": -180,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0",
+          "font_rgb": "FF7E3794"
+        },
+        "N": {
+          "value": 113.865,
+          "numfmt": "General"
+        },
+        "O": {
+          "value": 0.23,
+          "numfmt": "General"
+        },
+        "P": {
+          "formula": "=Delta*Qty",
+          "value": 83,
+          "numfmt": "General",
+          "font_rgb": "FF7E3794"
+        },
+        "Q": {
+          "value": 0.166,
+          "numfmt": "General"
+        },
+        "R": {
+          "formula": "=Theta*Qty",
+          "value": -13,
+          "numfmt": "General",
+          "font_rgb": "FF7E3794"
+        },
+        "S": {
+          "value": -0.026,
+          "numfmt": "General"
+        },
+        "T": {
+          "value": false,
+          "numfmt": "General"
+        },
+        "V": {
+          "value": 1.17,
+          "numfmt": "General"
+        },
+        "W": {
+          "value": 71.0,
+          "numfmt": "General"
+        },
+        "X": {
+          "value": 0.0,
+          "numfmt": "#,##0.00"
+        },
+        "Y": {
+          "formula": "=SUM(M11:M13)+X13",
+          "value": -425,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "Z": {
+          "formula": "=TotalProfitLoss/Capital",
+          "value": -1,
+          "numfmt": "0.00%",
+          "font_rgb": "FF7E3794"
+        }
+      },
+      "40": {
+        "A": {
+          "value": "TOTAL",
+          "numfmt": "General"
+        },
+        "P": {
+          "formula": "=SUM(P5:P39)",
+          "value": 36.4,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        },
+        "R": {
+          "formula": "=SUM(R5:R39)",
+          "value": 9.2,
+          "numfmt": "[Color10]#,###.00;([Red]#,###.00);[Black]0.0"
+        }
+      }
+    },
+    "comments": {
+      "Y4": {
+        "text": "Sum of P/L open + rolling P/L for the trade",
+        "parsed_json": null,
+        "author_id": "0",
+        "author_name": ""
+      },
+      "Z4": {
+        "text": "Total P/L divided by capital",
+        "parsed_json": null,
+        "author_id": "0",
+        "author_name": ""
+      },
+      "C13": {
+        "text": "{\"ticker\":\"None\",\"info\":\"None\",\"itm\":false,\"dte\":0,\"underlyingPrice\":0,\"markPrice\":0,\"extrinsicValue\":0,\"priceChange\":0,\"delta\":0,\"gamma\":0,\"theta\":0,\"vega\":0}",
+        "parsed_json": {
+          "ticker": "None",
+          "info": "None",
+          "itm": false,
+          "dte": 0,
+          "underlyingPrice": 0,
+          "markPrice": 0,
+          "extrinsicValue": 0,
+          "priceChange": 0,
+          "delta": 0,
+          "gamma": 0,
+          "theta": 0,
+          "vega": 0
+        },
+        "author_id": "0",
+        "author_name": ""
+      },
+      "C12": {
+        "text": "{\"ticker\":\"None\",\"info\":\"None\",\"itm\":false,\"dte\":0,\"underlyingPrice\":0,\"markPrice\":0,\"extrinsicValue\":0,\"priceChange\":0,\"delta\":0,\"gamma\":0,\"theta\":0,\"vega\":0}",
+        "parsed_json": {
+          "ticker": "None",
+          "info": "None",
+          "itm": false,
+          "dte": 0,
+          "underlyingPrice": 0,
+          "markPrice": 0,
+          "extrinsicValue": 0,
+          "priceChange": 0,
+          "delta": 0,
+          "gamma": 0,
+          "theta": 0,
+          "vega": 0
+        },
+        "author_id": "0",
+        "author_name": ""
+      },
+      "C11": {
+        "text": "{\"ticker\":\"None\",\"info\":\"None\",\"itm\":false,\"dte\":0,\"underlyingPrice\":0,\"markPrice\":0,\"extrinsicValue\":0,\"priceChange\":0,\"delta\":0,\"gamma\":0,\"theta\":0,\"vega\":0}",
+        "parsed_json": {
+          "ticker": "None",
+          "info": "None",
+          "itm": false,
+          "dte": 0,
+          "underlyingPrice": 0,
+          "markPrice": 0,
+          "extrinsicValue": 0,
+          "priceChange": 0,
+          "delta": 0,
+          "gamma": 0,
+          "theta": 0,
+          "vega": 0
+        },
+        "author_id": "0",
+        "author_name": ""
+      },
+      "C10": {
+        "text": "{\"ticker\":\"JPM\",\"info\":\"JPM Sep 16 2022 130 Call\",\"itm\":false,\"dte\":71,\"underlyingPrice\":113.865,\"markPrice\":1.17,\"extrinsicValue\":\"1.170\",\"priceChange\":0.23,\"delta\":0.166,\"gamma\":0.018,\"theta\":-0.026,\"vega\":0.126}",
+        "parsed_json": {
+          "ticker": "JPM",
+          "info": "JPM Sep 16 2022 130 Call",
+          "itm": false,
+          "dte": 71,
+          "underlyingPrice": 113.865,
+          "markPrice": 1.17,
+          "extrinsicValue": "1.170",
+          "priceChange": 0.23,
+          "delta": 0.166,
+          "gamma": 0.018,
+          "theta": -0.026,
+          "vega": 0.126
+        },
+        "author_id": "0",
+        "author_name": ""
+      },
+      "C9": {
+        "text": "{\"ticker\":\"None\",\"info\":\"None\",\"itm\":false,\"dte\":0,\"underlyingPrice\":0,\"markPrice\":0,\"extrinsicValue\":0,\"priceChange\":0,\"delta\":0,\"gamma\":0,\"theta\":0,\"vega\":0}",
+        "parsed_json": {
+          "ticker": "None",
+          "info": "None",
+          "itm": false,
+          "dte": 0,
+          "underlyingPrice": 0,
+          "markPrice": 0,
+          "extrinsicValue": 0,
+          "priceChange": 0,
+          "delta": 0,
+          "gamma": 0,
+          "theta": 0,
+          "vega": 0
+        },
+        "author_id": "0",
+        "author_name": ""
+      },
+      "C8": {
+        "text": "{\"ticker\":\"AMD\",\"info\":\"AMD Oct 21 2022 100 Call\",\"itm\":false,\"dte\":106,\"underlyingPrice\":78.215,\"markPrice\":2.46,\"extrinsicValue\":\"2.460\",\"priceChange\":0.48,\"delta\":0.228,\"gamma\":0.014,\"theta\":-0.031,\"vega\":0.128}",
+        "parsed_json": {
+          "ticker": "AMD",
+          "info": "AMD Oct 21 2022 100 Call",
+          "itm": false,
+          "dte": 106,
+          "underlyingPrice": 78.215,
+          "markPrice": 2.46,
+          "extrinsicValue": "2.460",
+          "priceChange": 0.48,
+          "delta": 0.228,
+          "gamma": 0.014,
+          "theta": -0.031,
+          "vega": 0.128
+        },
+        "author_id": "0",
+        "author_name": ""
+      },
+      "C7": {
+        "text": "{\"ticker\":\"AMD\",\"info\":\"AMD Jul 15 2022 85 Call\",\"itm\":false,\"dte\":8,\"underlyingPrice\":78.205,\"markPrice\":0.51,\"extrinsicValue\":\"0.510\",\"priceChange\":0.22,\"delta\":0.159,\"gamma\":0.039,\"theta\":-0.088,\"vega\":0.029}",
+        "parsed_json": {
+          "ticker": "AMD",
+          "info": "AMD Jul 15 2022 85 Call",
+          "itm": false,
+          "dte": 8,
+          "underlyingPrice": 78.205,
+          "markPrice": 0.51,
+          "extrinsicValue": "0.510",
+          "priceChange": 0.22,
+          "delta": 0.159,
+          "gamma": 0.039,
+          "theta": -0.088,
+          "vega": 0.029
+        },
+        "author_id": "0",
+        "author_name": ""
+      },
+      "C6": {
+        "text": "{\"ticker\":\"DIS\",\"info\":\"DIS Apr 14 2022 135 Call (Weekly)\",\"itm\":true,\"dte\":38,\"underlyingPrice\":136.48000000000002,\"markPrice\":7.55,\"extrinsicValue\":\"6.050\",\"priceChange\":-2.69,\"delta\":0.563,\"gamma\":0.023,\"theta\":-0.088,\"vega\":0.175}",
+        "parsed_json": {
+          "ticker": "DIS",
+          "info": "DIS Apr 14 2022 135 Call (Weekly)",
+          "itm": true,
+          "dte": 38,
+          "underlyingPrice": 136.48000000000002,
+          "markPrice": 7.55,
+          "extrinsicValue": "6.050",
+          "priceChange": -2.69,
+          "delta": 0.563,
+          "gamma": 0.023,
+          "theta": -0.088,
+          "vega": 0.175
+        },
+        "author_id": "0",
+        "author_name": ""
+      },
+      "C5": {
+        "text": "{\"ticker\":\"DIS\",\"info\":\"DIS Mar 18 2022 145 Call\",\"itm\":false,\"dte\":11,\"underlyingPrice\":136.48000000000002,\"markPrice\":1.08,\"extrinsicValue\":\"1.080\",\"priceChange\":-1.17,\"delta\":0.206,\"gamma\":0.03,\"theta\":-0.118,\"vega\":0.07}",
+        "parsed_json": {
+          "ticker": "DIS",
+          "info": "DIS Mar 18 2022 145 Call",
+          "itm": false,
+          "dte": 11,
+          "underlyingPrice": 136.48000000000002,
+          "markPrice": 1.08,
+          "extrinsicValue": "1.080",
+          "priceChange": -1.17,
+          "delta": 0.206,
+          "gamma": 0.03,
+          "theta": -0.118,
+          "vega": 0.07
+        },
+        "author_id": "0",
+        "author_name": ""
+      }
+    },
+    "formula_census": [
+      {
+        "formula": "=EntryPrice*Qty",
+        "count": 9,
+        "example_cells": [
+          "H5",
+          "H6",
+          "H7"
+        ]
+      },
+      {
+        "formula": "=MarkPrice*Qty",
+        "count": 9,
+        "example_cells": [
+          "L5",
+          "L6",
+          "L7"
+        ]
+      },
+      {
+        "formula": "=MarkValue-EntryValue",
+        "count": 9,
+        "example_cells": [
+          "M5",
+          "M6",
+          "M7"
+        ]
+      },
+      {
+        "formula": "=Delta*Qty",
+        "count": 9,
+        "example_cells": [
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      {
+        "formula": "=Theta*Qty",
+        "count": 9,
+        "example_cells": [
+          "R5",
+          "R6",
+          "R7"
+        ]
+      },
+      {
+        "formula": "=ExtrinsicValue*Qty",
+        "count": 6,
+        "example_cells": [
+          "U5",
+          "U6",
+          "U7"
+        ]
+      },
+      {
+        "formula": "=TotalProfitLoss/Capital",
+        "count": 4,
+        "example_cells": [
+          "Z6",
+          "Z8",
+          "Z10"
+        ]
+      },
+      {
+        "formula": "=SUM(H5:H6)/E6",
+        "count": 1,
+        "example_cells": [
+          "G6"
+        ]
+      },
+      {
+        "formula": "=SUM(L5:L6)/E6",
+        "count": 1,
+        "example_cells": [
+          "K6"
+        ]
+      },
+      {
+        "formula": "=((1.34-1.55)+(2.46-3)+(1.16-2.1)+(2.7-2.63)+(1.09-0.25)+(1.61-0.7)+(1.21-0.09)+(1.43-5.43)+(3.63-3.44)+(2.93-8.23)+(1.21-0.01)+(0.74-0.3)+(3.35-5.8)+(1.8-0.7)+1.07)*100",
+        "count": 1,
+        "example_cells": [
+          "X6"
+        ]
+      },
+      {
+        "formula": "=SUM(M5:M6)+X6",
+        "count": 1,
+        "example_cells": [
+          "Y6"
+        ]
+      },
+      {
+        "formula": "=SUM(H7:H8)/E8",
+        "count": 1,
+        "example_cells": [
+          "G8"
+        ]
+      },
+      {
+        "formula": "=SUM(L7:L8)/E8",
+        "count": 1,
+        "example_cells": [
+          "K8"
+        ]
+      },
+      {
+        "formula": "=((1.72-1.8)+(2.35-0.07)+(1.17-0.06)+(1.81-0.03)+(0.68-0.03)+(1.59-2.51)+(1.81-0.03)+(2.65-11.23)+(3.73-0.46)+(1.19-2.84)+(2.1-2.19)+(3.3-0.02)+(0.35-0.03)+(0.96-0.02)+1.02)*100",
+        "count": 1,
+        "example_cells": [
+          "X8"
+        ]
+      },
+      {
+        "formula": "=SUM(M7:M8)+X8",
+        "count": 1,
+        "example_cells": [
+          "Y8"
+        ]
+      },
+      {
+        "formula": "=SUM(H9:H10)/E10",
+        "count": 1,
+        "example_cells": [
+          "G10"
+        ]
+      },
+      {
+        "formula": "=SUM(L9:L10)/E10",
+        "count": 1,
+        "example_cells": [
+          "K10"
+        ]
+      },
+      {
+        "formula": "=((1.61-2.2)+(1.12-3.94)+(1.46-0.13)+(1.14-0.13)+(3.11-4.79)+(0.71-0.1)+(1.71-0.02)+(1.28-3.28)+(2.98-2.88)+(3.28-0.02)+(0.95-2.68)+(1.98-0.1)+0.82)*100",
+        "count": 1,
+        "example_cells": [
+          "X10"
+        ]
+      },
+      {
+        "formula": "=SUM(M9:M10)+X10",
+        "count": 1,
+        "example_cells": [
+          "Y10"
+        ]
+      },
+      {
+        "formula": "=SUM(H11:H13)/E13",
+        "count": 1,
+        "example_cells": [
+          "G13"
+        ]
+      },
+      {
+        "formula": "=SUM(L11:L13)/(1000)",
+        "count": 1,
+        "example_cells": [
+          "K13"
+        ]
+      },
+      {
+        "formula": "=SUM(M11:M13)+X13",
+        "count": 1,
+        "example_cells": [
+          "Y13"
+        ]
+      },
+      {
+        "formula": "=SUM(P5:P39)",
+        "count": 1,
+        "example_cells": [
+          "P40"
+        ]
+      },
+      {
+        "formula": "=SUM(R5:R39)",
+        "count": 1,
+        "example_cells": [
+          "R40"
+        ]
+      }
+    ]
+  },
+  "sheet6": {
+    "rows": {
+      "1": {},
+      "2": {
+        "A": {
+          "value": "2022-02-01 00:00:00",
+          "numfmt": "mmm yyyy"
+        }
+      },
+      "3": {
+        "A": {
+          "value": "NKE",
+          "numfmt": "General"
+        },
+        "B": {
+          "value": -354.0,
+          "numfmt": "General"
+        }
+      },
+      "4": {
+        "A": {
+          "value": "GLD",
+          "numfmt": "General"
+        },
+        "B": {
+          "value": -295.0,
+          "numfmt": "General"
+        },
+        "C": {
+          "value": -680.0,
+          "numfmt": "General"
+        }
+      },
+      "5": {
+        "A": {
+          "value": "ADBE",
+          "numfmt": "General"
+        },
+        "B": {
+          "value": -737.0,
+          "numfmt": "General"
+        }
+      },
+      "6": {
+        "A": {
+          "value": "FB",
+          "numfmt": "General"
+        },
+        "B": {
+          "value": -1090.0,
+          "numfmt": "General"
+        }
+      },
+      "7": {
+        "A": {
+          "value": "SPX",
+          "numfmt": "General"
+        },
+        "B": {
+          "value": -1000.0,
+          "numfmt": "General"
+        }
+      },
+      "8": {
+        "A": {
+          "value": "2022-03-01 00:00:00",
+          "numfmt": "mmm yyyy"
+        }
+      },
+      "9": {
+        "A": {
+          "value": "XOP",
+          "numfmt": "General"
+        },
+        "B": {
+          "value": -265.0,
+          "numfmt": "General"
+        }
+      }
+    },
+    "comments": {}
+  }
+}
