@@ -58,6 +58,8 @@ BANNER_ENTRY_CELL = "C3"
 BANNER_MARKET_CELL = "K3"
 AS_OF_CELL = "Y3"
 HEADER_ROW = 4
+ROLL_COMMENT_PREFIX = "Roll ledger:"
+_ROLL_COMMENT_PREFIX_LOWER = ROLL_COMMENT_PREFIX.lower()
 FIRST_DATA_ROW = 5
 MARKET_COLUMNS = "NOPQRSTUVW"  # the outline group (market data)
 
@@ -317,7 +319,11 @@ def _build_blocks(
             strategy=_text(values_ws.cell(first_row, 2).value),
             capital=None if capital_value is None else coerce_float(capital_value),
             net_divisor=net_divisor,
-            roll=_import_roll(formulas_ws.cell(last_row, 24).value, values_ws.cell(last_row, 24).value),
+            roll=_import_roll(
+                formulas_ws.cell(last_row, 24).value,
+                values_ws.cell(last_row, 24).value,
+                formulas_ws.cell(last_row, 24).comment,
+            ),
         )
         block.legs = [_import_leg(row, values_ws, formulas_ws) for row in group]
         for leg in block.legs:
@@ -339,12 +345,32 @@ def _divisor_from_comment(comment: Any) -> float | None:
     return float(match.group(1)) if match else None
 
 
-def _import_roll(formula: Any, value: Any) -> RollLedger:
+def _roll_from_comment(comment: Any) -> str | None:
+    """Recover the rendered X literal from the export comment, if present."""
+    text = getattr(comment, "text", None)
+    if not isinstance(text, str):
+        return None
+    stripped = text.strip()
+    if not stripped.lower().startswith(_ROLL_COMMENT_PREFIX_LOWER):
+        return None
+    literal = stripped[len(ROLL_COMMENT_PREFIX) :].strip()
+    return literal or None
+
+
+def _import_roll(formula: Any, value: Any, comment: Any = None) -> RollLedger:
+    # Prefer the live formula, then the literal we wrote into the cell comment on
+    # export (which keeps the pair/credit history a plain value cannot express).
+    literals: list[str] = []
     if isinstance(formula, str) and formula.strip():
+        literals.append(formula)
+    comment_literal = _roll_from_comment(comment)
+    if comment_literal:
+        literals.append(comment_literal)
+    for literal in literals:
         try:
-            return RollLedger.from_expression(formula)
+            return RollLedger.from_expression(literal)
         except ValueError:
-            pass
+            continue
     if value in (None, ""):
         return RollLedger()
     number = coerce_float(value)
@@ -534,7 +560,9 @@ def _export_leg(sheet, block: PositionBlock, leg: Leg) -> None:
     if leg.quote.raw:
         sheet[f"C{row}"].comment = Comment(leg.quote.raw, "quote")
     if last and not block.roll.is_empty():
-        sheet[f"X{row}"].comment = Comment(f"Roll ledger: {block.roll.render()}", "otp-tracker")
+        sheet[f"X{row}"].comment = Comment(
+            f"{ROLL_COMMENT_PREFIX} {block.roll.render()}", "otp-tracker"
+        )
     if last and block.net_divisor is not None:
         sheet[f"K{row}"].comment = Comment(f"otp-divisor={block.net_divisor:g}", "otp-tracker")
 

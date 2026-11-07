@@ -236,11 +236,6 @@ def test_literal_zero_is_not_empty():
     assert RollLedger(literal_zero=True).is_empty() is False
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="DEF-1: from_expression over-strips outer parens for pair-only literals; "
-    "rendered '=((2-1.5))*100' parses to credits [-1.5] (-150.0) instead of pair (2-1.5) (+50.0)",
-)
 def test_pair_only_literal_round_trip():
     ledger = RollLedger(pairs=[RollPair(2.0, 1.5)])
     parsed = RollLedger.from_expression(ledger.render())
@@ -248,11 +243,6 @@ def test_pair_only_literal_round_trip():
     assert [(p.new_px, p.closed_px) for p in parsed.pairs] == [(2.0, 1.5)]
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="DEF-2: from_expression silently returns an empty ledger for unparseable text "
-    "instead of raising ValueError (its own documented contract)",
-)
 def test_unparseable_literal_raises():
     with pytest.raises(ValueError):
         RollLedger.from_expression("=foo*100")

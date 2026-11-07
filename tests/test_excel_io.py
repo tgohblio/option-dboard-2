@@ -230,11 +230,6 @@ def test_export_import_round_trip_preserves_roll_values(tmp_path, portfolio, led
         assert block.roll.literal_zero is original.roll.literal_zero
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="DEF-4: export writes the X literal only as a comment and import ignores it, "
-    "so export->import collapses every roll pair into one credit (values stay correct, history is lost)",
-)
 def test_export_import_round_trip_preserves_roll_pair_history(tmp_path, portfolio, ledger):
     out = export_workbook(tmp_path / "roundtrip.xlsx", portfolio, ledger)
     reimported = import_workbook(out)

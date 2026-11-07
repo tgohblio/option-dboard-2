@@ -236,11 +236,6 @@ def test_edit_cancel_leaves_the_model_untouched(app_session):
     assert leg.qty == -100.0
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="DEF-3: spec §11.4 says capital/net-divisor are shown only for a last-row edit, "
-    "but the dialog renders them for every row and silently ignores them on save",
-)
 def test_non_last_row_edit_does_not_offer_block_level_fields(app_session):
     state, page, root = app_session
     leg7 = next(item for item in state.legs() if item.sheet_row == 7)

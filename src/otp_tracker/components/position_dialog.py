@@ -119,11 +119,28 @@ def open_position_dialog(
         value="" if not target_block or target_block.net_divisor is None else f"{target_block.net_divisor:g}",
         helper="blank = last leg Qty (source K13 uses 1000)",
     )
+    # Spec §11.4: capital/net-divisor belong to the block's last row; on a
+    # non-last-row edit they are neither shown nor applied.
+    block_fields_shown = not editing or (
+        leg is not None and target_block is not None and leg.sheet_row == target_block.row_end
+    )
     error_text = ft.Text("", color=ft.Colors.RED_700, size=12)
 
     title = {"edit": "Edit position", "add_block": "Add strategy block"}.get(mode, "Add leg")
     if editing and leg is not None:
         title = f"Edit position — row {leg.sheet_row}"
+
+    qty_row: list[ft.Control] = [qty_field, price_field]
+    if block_fields_shown:
+        qty_row.append(capital_field)
+    form_controls: list[ft.Control] = [
+        ft.Row([action_field, strategy_field], spacing=10),
+        ft.Row([symbol_field, date_field], spacing=10),
+        ft.Row(qty_row, spacing=10),
+    ]
+    if block_fields_shown:
+        form_controls.append(divisor_field)
+    form_controls.append(error_text)
 
     dialog = ft.AlertDialog(
         key="position-dialog",
@@ -134,13 +151,7 @@ def open_position_dialog(
             content=ft.Column(
                 tight=True,
                 spacing=10,
-                controls=[
-                    ft.Row([action_field, strategy_field], spacing=10),
-                    ft.Row([symbol_field, date_field], spacing=10),
-                    ft.Row([qty_field, price_field, capital_field], spacing=10),
-                    divisor_field,
-                    error_text,
-                ],
+                controls=form_controls,
             ),
         ),
         actions=[
@@ -160,8 +171,11 @@ def open_position_dialog(
             qty = _parse_float(qty_field.value, "Qty", required=True)
             assert qty is not None
             entry_price = _parse_float(price_field.value, "Entry price")
-            capital = _parse_float(capital_field.value, "Block capital")
-            divisor = _parse_float(divisor_field.value, "Net MARK divisor")
+            if block_fields_shown:
+                capital = _parse_float(capital_field.value, "Block capital")
+                divisor = _parse_float(divisor_field.value, "Net MARK divisor")
+            else:
+                capital = divisor = None
             entry_date = _parse_date(date_field.value)
         except symbology.SymbolParseError as exc:
             symbol_field.error = str(exc)
@@ -182,7 +196,7 @@ def open_position_dialog(
             leg.entry_date = entry_date
             leg.qty = qty
             leg.entry_price = entry_price
-            if leg.sheet_row == target_block.row_end:
+            if block_fields_shown and leg.sheet_row == target_block.row_end:
                 target_block.capital = capital
                 target_block.net_divisor = divisor
             state.touch("Position updated")

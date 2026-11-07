@@ -2,12 +2,18 @@
 
 from __future__ import annotations
 
+import re
+
 import flet as ft
 import flet_datatable2 as fdt
 
 from .. import calculations
 from ..app_state import get_state
 from ..formatting import format_cell
+
+# The importer's per-row divisor note ("Row 13: Net MARK divisor override 1000 …"),
+# which the summary already reports as a block-level warning.
+_ROW_DIVISOR_WARNING_RE = re.compile(r"Row (\d+):\s+Net MARK divisor override\b")
 
 
 def _card(label: str, value: str, key: str, color: str | None = None) -> ft.Card:
@@ -28,7 +34,13 @@ def _card(label: str, value: str, key: str, color: str | None = None) -> ft.Card
 
 def _column(label: str, width: int, numeric: bool = False) -> fdt.DataColumn2:
     return fdt.DataColumn2(
-        label=ft.Text(label, size=12, weight=ft.FontWeight.BOLD),
+        label=ft.Text(
+            label,
+            size=12,
+            weight=ft.FontWeight.BOLD,
+            no_wrap=True,
+            overflow=ft.TextOverflow.CLIP,
+        ),
         fixed_width=width,
         numeric=numeric,
     )
@@ -85,26 +97,30 @@ def build_summary_view(page: ft.Page):
     table = fdt.DataTable2(
         key="summary-blocks",
         columns=[
-            _column("Strategy", 110),
-            _column("Rows", 80),
-            _column("Legs", 60, True),
+            _column("Strategy", 120),
+            _column("Rows", 100),
+            _column("Legs", 80, True),
             _column("Capital", 110, True),
-            _column("Net Entry", 100, True),
-            _column("Net Mark", 100, True),
-            _column("Rolling P/L", 110, True),
-            _column("Total P/L", 110, True),
+            _column("Net Entry", 110, True),
+            _column("Net Mark", 110, True),
+            _column("Rolling P/L", 120, True),
+            _column("Total P/L", 120, True),
             _column("ROI", 90, True),
         ],
         rows=rows,
         fixed_top_rows=1,
-        min_width=900,
+        min_width=980,
         data_row_height=34,
         empty=ft.Text("No blocks yet."),
     )
 
     warnings: list[str] = []
+    # Rows whose K-divisor override is already reported per block below; the
+    # importer emits the same fact per row, so those lines are folded away.
+    divisor_warned_rows: set[int] = set()
     for block in state.blocks():
         if calculations.net_divisor_overridden(block):
+            divisor_warned_rows.add(block.row_end)
             warnings.append(
                 f"Block {block.row_start}–{block.row_end}: Net MARK divisor overridden "
                 f"({block.net_divisor:g} ≠ qty {block.last_leg().qty:g}) — preserved from the source workbook."
@@ -122,7 +138,13 @@ def build_summary_view(page: ft.Page):
             + ", ".join(str(leg.sheet_row) for leg in placeholders)
             + " — displayed marks come from a stale snapshot."
         )
-    warnings.extend(state.warnings)
+    for warning in state.warnings:
+        match = _ROW_DIVISOR_WARNING_RE.match(warning)
+        if match and int(match.group(1)) in divisor_warned_rows:
+            continue  # already reported as a block-level override above
+        if warning in warnings:
+            continue
+        warnings.append(warning)
 
     return ft.Column(
         expand=True,

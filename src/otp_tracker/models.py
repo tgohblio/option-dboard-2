@@ -210,6 +210,10 @@ def _fmt_number(value: float) -> str:
 
 _ROLL_PAIR_RE = re.compile(r"\(\s*(-?\d+(?:\.\d+)?)\s*-\s*(-?\d+(?:\.\d+)?)\s*\)")
 _ROLL_TERM_RE = re.compile(r"([+-])\s*(\d+(?:\.\d+)?)")
+_ROLL_SCALE_RE = re.compile(r"\*\s*100\s*$")
+# Characters that may legitimately survive pair/credit extraction: whitespace,
+# grouping parentheses and the '+' separators that sit between terms.
+_ROLL_STRUCTURAL_CHARS = " \t\r\n()+"
 
 
 @dataclass
@@ -247,6 +251,11 @@ class RollLedger:
 
         ``0`` / ``0.0`` become :attr:`literal_zero`; unparseable text raises
         :class:`ValueError` so the dialog can show an inline error.
+
+        Parsing is structural: ``(new-closed)`` groups are consumed wherever they
+        appear (the outer wrapper of a rendered literal is just punctuation), the
+        remaining signed numbers become credits, and anything left over that is
+        not grouping punctuation is rejected rather than silently dropped.
         """
         text = (raw or "").strip()
         if text.startswith("="):
@@ -256,16 +265,35 @@ class RollLedger:
         if re.fullmatch(r"-?0(?:\.0+)?", text):
             return cls(literal_zero=True)
 
-        # Drop the trailing *100 and the wrapping parentheses.
-        body = re.sub(r"\*\s*100\s*$", "", text).strip()
-        while body.startswith("(") and body.endswith(")"):
-            body = body[1:-1].strip()
+        body = _ROLL_SCALE_RE.sub("", text).strip()
 
-        pairs = [RollPair(new_px=float(a), closed_px=float(b)) for a, b in _ROLL_PAIR_RE.findall(body)]
-        residue = _ROLL_PAIR_RE.sub("", body)
-        credits = [float(f"{sign}{number}") for sign, number in _ROLL_TERM_RE.findall(residue)]
-        if not pairs and not credits and not re.search(r"\d", body):
-            return cls()
+        pairs: list[RollPair] = []
+        pair_chunks: list[str] = []
+        cursor = 0
+        for match in _ROLL_PAIR_RE.finditer(body):
+            pair_chunks.append(body[cursor : match.start()])
+            pairs.append(RollPair(new_px=float(match.group(1)), closed_px=float(match.group(2))))
+            cursor = match.end()
+        pair_chunks.append(body[cursor:])
+        residue = "".join(pair_chunks)
+
+        credits: list[float] = []
+        term_chunks: list[str] = []
+        cursor = 0
+        for match in _ROLL_TERM_RE.finditer(residue):
+            term_chunks.append(residue[cursor : match.start()])
+            credits.append(float(f"{match.group(1)}{match.group(2)}"))
+            cursor = match.end()
+        term_chunks.append(residue[cursor:])
+
+        leftover = "".join(term_chunks).strip()
+        # Only the grouping/separator punctuation may remain; digits, letters or
+        # stray signs mean the literal is not understood.
+        stray = leftover.strip(_ROLL_STRUCTURAL_CHARS)
+        if stray:
+            raise ValueError(f"Cannot parse roll literal {raw!r}: unexpected text {stray!r}")
+        if not pairs and not credits:
+            raise ValueError(f"Cannot parse roll literal {raw!r}: no (new-closed) pair or credit found")
         return cls(pairs=pairs, credits=credits)
 
 
